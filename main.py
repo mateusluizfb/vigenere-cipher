@@ -5,13 +5,13 @@ def cipher_plaintext(key, plaintext):
     ciphered_chars = []
 
     for i in range(len(plaintext)):
-        new_char = match_char(plaintext[i], keystream[i])
+        new_char = find_new_chipered_char(plaintext[i], keystream[i])
         ciphered_chars.append(new_char)
 
     ciphered_text = ("".join(ciphered_chars))
     return ciphered_text
 
-def match_char(keystream_char, plaintext_char):
+def find_new_chipered_char(keystream_char, plaintext_char):
     file = open('./alphabet_table.json')
     data = json.load(file)
     plaintext_char_unicode = ord(plaintext_char)
